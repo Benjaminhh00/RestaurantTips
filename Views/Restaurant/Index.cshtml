@@ -73,6 +73,8 @@
         Klikk på kartet for å markere hvor restauranten ligger.
     </p>
 
+
+    <!-- Interaktivt kart hvor brukeren velger restaurantens plassering -->
     <div id="map" style="height: 400px;"></div>
 
     <input asp-for="Latitude" type="hidden" id="latitude" />
@@ -108,7 +110,9 @@
 
     let marker;
 
-    // Kjøres når brukeren klikker på kartet.
+    // Når brukeren klikker på kartet, hentes koordinatene.
+// Latitude og longitude lagres i skjulte felt slik at
+// de blir sendt til Controlleren sammen med resten av skjemaet.
     map.on('click', function (e) {
 
         const latitude = e.latlng.lat;

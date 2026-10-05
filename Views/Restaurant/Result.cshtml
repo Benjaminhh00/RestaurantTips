@@ -47,6 +47,7 @@
     @Model.Longitude
 </p>
 
+<!-- Kartet viser plasseringen brukeren valgte i skjemaet -->
 <div id="resultMap" style="height: 350px; margin-top: 20px;"></div>
 
                 </div>
@@ -65,6 +66,9 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
+
+    // Henter koordinatene fra ViewModel-en og konverterer
+// dem til tall som Leaflet kan bruke.
     const latitude = parseFloat('@Model.Latitude');
     const longitude = parseFloat('@Model.Longitude');
 
@@ -78,6 +82,8 @@
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(resultMap);
 
+
+    // Plasserer en markør på posisjonen brukeren valgte.
     L.marker([latitude, longitude])
         .addTo(resultMap)
         .bindPopup('@Model.Name')
