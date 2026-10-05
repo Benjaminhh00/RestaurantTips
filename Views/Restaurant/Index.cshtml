@@ -1,0 +1,132 @@
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+@model RestaurantTips.Models.RestaurantViewModel
+
+@{
+    ViewData["Title"] = "Anbefal restaurant";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <h1 class="mb-3">🍴 Anbefal en restaurant</h1>
+
+            <p class="text-muted">
+                Fyll ut informasjon om restauranten du ønsker å anbefale.
+            </p>
+
+            <form asp-controller="Restaurant" asp-action="Index" method="post">
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="FoodType" class="form-label"></label>
+
+                    <select asp-for="FoodType" class="form-select">
+                        <option value="">-- Velg type mat --</option>
+                        <option value="Italiensk">Italiensk</option>
+                        <option value="Asiatisk">Asiatisk</option>
+                        <option value="Indisk">Indisk</option>
+                        <option value="Amerikansk">Amerikansk</option>
+                        <option value="Norsk">Norsk</option>
+                        <option value="Annet">Annet</option>
+                    </select>
+
+                    <span asp-validation-for="FoodType" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Rating" class="form-label"></label>
+
+                    <select asp-for="Rating" class="form-select">
+                        <option value="0">-- Velg vurdering --</option>
+                        <option value="1">⭐ 1</option>
+                        <option value="2">⭐⭐ 2</option>
+                        <option value="3">⭐⭐⭐ 3</option>
+                        <option value="4">⭐⭐⭐⭐ 4</option>
+                        <option value="5">⭐⭐⭐⭐⭐ 5</option>
+                    </select>
+
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Comment" class="form-label"></label>
+
+                    <textarea asp-for="Comment"
+                              class="form-control"
+                              rows="4"></textarea>
+                </div>
+
+                <div class="mb-3">
+    <label class="form-label">Velg restaurantens plassering</label>
+
+    <p class="text-muted">
+        Klikk på kartet for å markere hvor restauranten ligger.
+    </p>
+
+    <div id="map" style="height: 400px;"></div>
+
+    <input asp-for="Latitude" type="hidden" id="latitude" />
+    <input asp-for="Longitude" type="hidden" id="longitude" />
+
+    <p class="mt-2">
+        Valgt posisjon:
+        <span id="coordinates">Ingen posisjon valgt</span>
+    </p>
+</div>
+                
+                <button type="submit" class="btn btn-primary">
+                    Send anbefaling
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    // Oppretter kartet og bestemmer startposisjon og zoom.
+    const map = L.map('map').setView([58.15, 8.00], 12);
+
+    // Henter kartfliser fra OpenStreetMap.
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let marker;
+
+    // Kjøres når brukeren klikker på kartet.
+    map.on('click', function (e) {
+
+        const latitude = e.latlng.lat;
+        const longitude = e.latlng.lng;
+
+        // Lagrer koordinatene i de skjulte skjemafeltene.
+        document.getElementById('latitude').value = latitude;
+        document.getElementById('longitude').value = longitude;
+
+        // Viser koordinatene til brukeren.
+        document.getElementById('coordinates').textContent =
+            latitude.toFixed(5) + ", " + longitude.toFixed(5);
+
+        // Flytter markøren dersom brukeren klikker på nytt.
+        if (marker) {
+            marker.setLatLng(e.latlng);
+        } else {
+            marker = L.marker(e.latlng).addTo(map);
+        }
+    });
+</script>

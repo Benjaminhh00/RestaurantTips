@@ -1,0 +1,85 @@
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+@model RestaurantTips.Models.RestaurantViewModel
+
+@{
+    ViewData["Title"] = "Din anbefaling";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <h1>🍴 Din restaurantanbefaling</h1>
+
+            <div class="card mt-4">
+                <div class="card-body">
+
+                    <h2 class="card-title">@Model.Name</h2>
+
+                    <p>
+                        <strong>Type mat:</strong>
+                        @Model.FoodType
+                    </p>
+
+                    <p>
+                        <strong>Vurdering:</strong>
+                        @Model.Rating av 5 ⭐
+                    </p>
+
+                    <p>
+                        <strong>Kommentar:</strong>
+                        @Model.Comment
+                    </p>
+
+                    <hr />
+
+<h4>📍 Plassering</h4>
+
+<p>
+    <strong>Latitude:</strong>
+    @Model.Latitude
+</p>
+
+<p>
+    <strong>Longitude:</strong>
+    @Model.Longitude
+</p>
+
+<div id="resultMap" style="height: 350px; margin-top: 20px;"></div>
+
+                </div>
+            </div>
+
+            <a asp-controller="Restaurant"
+               asp-action="Index"
+               class="btn btn-secondary mt-3">
+                Legg til en ny anbefaling
+            </a>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    const latitude = parseFloat('@Model.Latitude');
+    const longitude = parseFloat('@Model.Longitude');
+
+    const resultMap = L.map('resultMap').setView(
+        [latitude, longitude],
+        15
+    );
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(resultMap);
+
+    L.marker([latitude, longitude])
+        .addTo(resultMap)
+        .bindPopup('@Model.Name')
+        .openPopup();
+</script>
