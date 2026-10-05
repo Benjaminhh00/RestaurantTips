@@ -1,3 +1,12 @@
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.AssemblyInfoInputs.cache
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.AssemblyInfo.cs
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.csproj.CoreCompileInputs.cache
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.RazorAssemblyInfo.cache
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.RazorAssemblyInfo.cs
+C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.sourcelink.json
 C:\Users\benja\RestaurantTips\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\benja\RestaurantTips\bin\Debug\net10.0\appsettings.json
 C:\Users\benja\RestaurantTips\bin\Debug\net10.0\RestaurantTips.staticwebassets.runtime.json
@@ -7,14 +16,6 @@ C:\Users\benja\RestaurantTips\bin\Debug\net10.0\RestaurantTips.deps.json
 C:\Users\benja\RestaurantTips\bin\Debug\net10.0\RestaurantTips.runtimeconfig.json
 C:\Users\benja\RestaurantTips\bin\Debug\net10.0\RestaurantTips.dll
 C:\Users\benja\RestaurantTips\bin\Debug\net10.0\RestaurantTips.pdb
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.AssemblyInfoInputs.cache
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.AssemblyInfo.cs
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.csproj.CoreCompileInputs.cache
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.RazorAssemblyInfo.cache
-C:\Users\benja\RestaurantTips\obj\Debug\net10.0\RestaurantTips.RazorAssemblyInfo.cs
 C:\Users\benja\RestaurantTips\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\benja\RestaurantTips\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\benja\RestaurantTips\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
